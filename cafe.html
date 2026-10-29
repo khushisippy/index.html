@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pink Brew Cafe</title>
+
+    <style>
+
+        /* GENERAL STYLING */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fffaf7;
+            color: #49332e;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* NAVIGATION BAR */
+
+        header {
+            background-color: #fffaf7;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px #00000010;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .brand h2 {
+            font-family: Georgia, serif;
+            color: #75443f;
+            font-size: 22px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #49332e;
+            margin-left: 22px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #c46c83;
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: 470px;
+            padding: 80px 7%;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(253, 53, 3, 0.8),
+                    rgba(35, 22, 19, 0.15)
+                ),
+                url("https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1600&q=85");
+
+            background-size: cover;
+            background-position: center;
+            color: burlywood;
+        }
+
+        .hero-content {
+            max-width: 540px;
+        }
+
+        .hero-content .small-text {
+            color: bisque;
+            letter-spacing: 3px;
+            font-size: 13px;
+        }
+
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(38px, 5vw, 60px);
+            margin: 20px 0;
+            line-height: 1.15;
+        }
+
+        .hero p {
+            line-height: 1.8;
+            margin-bottom: 28px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 25px;
+            background-color: #c46c83;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background-color: #9e4f65;
+            transform: translateY(-2px);
+        }
+
+        /* COMMON SECTION STYLING */
+
+        section {
+            padding: 70px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title p {
+            color: black;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-family: Georgia, serif;
+            font-size: 34px;
+        }
+
+        /* MENU SECTION */
+
+        .menu-section {
+            background-color:blanchedalmond;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        .menu-card {
+            background-color: beige;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px #49332e12;
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px #49332e20;
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .menu-info {
+            padding: 20px;
+        }
+
+        .menu-info h3 {
+            font-family: Georgia, serif;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .menu-info p {
+            color: #f3efed;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .price {
+            display: block;
+            color: #b65d76;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* ABOUT SECTION */
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 45px;
+        }
+
+        .about-container img {
+            width: 48%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-family: Georgia, serif;
+            font-size: 35px;
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: #806d65;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        /* GALLERY */
+
+        .gallery {
+            background-color: #fff4ef;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-container img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .gallery-container img:hover {
+            transform: scale(1.03);
+        }
+
+        /* CUSTOMER REVIEWS */
+
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            padding: 25px;
+            background-color: #fff4ef;
+            border-radius: 10px;
+            border: 1px solid #f0d9d3;
+        }
+
+        .stars {
+            color: #d69a3a;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .review-card p {
+            line-height: 1.8;
+            color: #806d65;
+        }
+
+        .review-card h3 {
+            margin-top: 18px;
+            font-size: 15px;
+        }
+
+        /* CONTACT SECTION */
+
+        .contact {
+            background-color: #f8e6e2;
+            text-align: center;
+        }
+
+        .contact p {
+            line-height: 2;
+            color: #70564f;
+        }
+
+        .contact .button {
+            margin-top: 20px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background-color: #49332e;
+            color: white;
+            padding: 30px 7%;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        footer a {
+            color: #f5c7d2;
+            text-decoration: none;
+        }
+
+        /* MOBILE RESPONSIVE DESIGN */
+
+        @media (max-width: 768px) {
+
+            header {
+                flex-direction: column;
+                gap: 18px;
+                padding: 20px;
+            }
+
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0;
+            }
+
+            .hero {
+                min-height: 420px;
+                padding: 60px 6%;
+            }
+
+            .menu-container,
+            .gallery-container,
+            .reviews-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .about-container {
+                flex-direction: column;
+            }
+
+            .about-container img {
+                width: 100%;
+                height: 280px;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+
+            .menu-container,
+            .gallery-container,
+            .reviews-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            section {
+                padding: 50px 6%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <header>
+
+        <div class="brand">
+
+            <img
+                src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=150&q=80"
+                alt="Pink Brew Cafe logo">
+
+            <h2>Pink Brew Cafe</h2>
+
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#menu">Our Menu</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+
+    <!-- HERO SECTION -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <p class="small-text">WELCOME TO PINK BREW</p>
+
+                <h1>Your Daily Dose of Happiness</h1>
+
+                <p>
+                    Good coffee, sweet moments and beautiful memories.
+                    Find your favourite cup at Pink Brew Cafe.
+                </p>
+
+                <a href="#menu" class="button">Explore Our Menu</a>
+
+            </div>
+
+        </section>
+
+
+        <!-- MENU SECTION -->
+
+        <section class="menu-section" id="menu">
+
+            <div class="section-title">
+
+                <p>Made With Love</p>
+
+                <h2>Our Popular Menu</h2>
+
+            </div>
+
+            <div class="menu-container">
+
+                <div class="menu-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=700&q=80"
+                        alt="Cappuccino coffee">
+
+                    <div class="menu-info">
+
+                        <h3>Cappuccino</h3>
+
+                        <p>Rich espresso with smooth steamed milk.</p>
+
+                        <span class="price">₹150</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80"
+                        alt="Iced coffee">
+
+                    <div class="menu-info">
+
+                        <h3>Cold Coffee</h3>
+
+                        <p>Chilled, creamy and perfect for your day.</p>
+
+                        <span class="price">₹180</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=700&q=80"
+                        alt="Chocolate brownie">
+
+                    <div class="menu-info">
+
+                        <h3>Chocolate Brownie</h3>
+
+                        <p>Rich chocolate goodness in every bite.</p>
+
+                        <span class="price">₹120</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=700&q=80"
+                        alt="Freshly brewed coffee">
+
+                    <div class="menu-info">
+
+                        <h3>Classic Espresso</h3>
+
+                        <p>A bold coffee for your everyday moments.</p>
+
+                        <span class="price">₹100</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80"
+                        alt="Chocolate cake">
+
+                    <div class="menu-info">
+
+                        <h3>Chocolate Cake</h3>
+
+                        <p>A delicious slice for your sweet cravings.</p>
+
+                        <span class="price">₹160</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=700&q=80"
+                        alt="Fresh bakery pastry">
+
+                    <div class="menu-info">
+
+                        <h3>Fresh Croissant</h3>
+
+                        <p>Golden, flaky and freshly baked.</p>
+
+                        <span class="price">₹130</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT US -->
+
+        <section id="about">
+
+            <div class="about-container">
+
+                <img
+                    src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=85"
+                    alt="Cozy cafe interior">
+
+                <div class="about-content">
+
+                    <h2>A Little Place Full of Love</h2>
+
+                    <p>
+                        Welcome to Pink Brew Cafe, where every cup tells
+                        a story and every visit feels special.
+                    </p>
+
+                    <p>
+                        From freshly brewed coffee to delicious desserts,
+                        we believe the little moments make life beautiful.
+                    </p>
+
+                    <a href="#contact" class="button">Visit Our Cafe</a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GALLERY -->
+
+        <section class="gallery" id="gallery">
+
+            <div class="section-title">
+
+                <p>A Peek Inside</p>
+
+                <h2>Our Little Coffee World</h2>
+
+            </div>
+
+            <div class="gallery-container">
+
+                <img
+                    src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=80"
+                    alt="Coffee preparation">
+
+                <img
+                    src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=700&q=80"
+                    alt="Cafe atmosphere">
+
+                <img
+                    src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=700&q=80"
+                    alt="Coffee served in a cup">
+
+            </div>
+
+        </section>
+
+
+        <!-- CUSTOMER REVIEWS -->
+
+        <section>
+
+            <div class="section-title">
+
+                <p>Kind Words</p>
+
+                <h2>What People Say</h2>
+
+            </div>
+
+            <div class="reviews-container">
+
+                <div class="review-card">
+
+                    <div class="stars">★★★★★</div>
+
+                    <p>
+                        The coffee was amazing and the atmosphere
+                        was so warm and welcoming!
+                    </p>
+
+                    <h3>— A Happy Customer</h3>
+
+                </div>
+
+
+                <div class="review-card">
+
+                    <div class="stars">★★★★★</div>
+
+                    <p>
+                        Loved the desserts and the beautiful
+                        presentation. Perfect for a coffee date.
+                    </p>
+
+                    <h3>— Coffee Lover</h3>
+
+                </div>
+
+
+                <div class="review-card">
+
+                    <div class="stars">★★★★★</div>
+
+                    <p>
+                        Such a lovely place to relax, enjoy coffee
+                        and spend time with friends.
+                    </p>
+
+                    <h3>— Cafe Guest</h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="contact" id="contact">
+
+            <div class="section-title">
+
+                <p>We Would Love to See You</p>
+
+                <h2>Let's Have a Coffee!</h2>
+
+            </div>
+
+            <p>Come by for your favourite coffee and a little happiness.</p>
+
+            <p>Opening Hours: Monday – Sunday | 9 AM – 10 PM</p>
+
+            <p>Email: khushisippy02@gmail.com</p>
+
+            <a href="mailto:hello@pinkbrewcafe.example" class="button">
+                Contact Us
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>Pink Brew Cafe ☕</p>
+
+        <p>Made with love, coffee and a little pink.</p>
+
+        <p>© 2026 Pink Brew Cafe. All rights reserved.</p>
+
+    </footer>
+
+</body>
+
+</html>
